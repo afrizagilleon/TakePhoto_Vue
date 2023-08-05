@@ -45,18 +45,12 @@ export default {
       context.drawImage(this.$refs.video, 0, 0, canvas.width, canvas.height);
       const imageData = canvas.toDataURL('image/jpeg'); // Gambar diubah menjadi base64 string
       console.log('Image Data:', imageData);
+
+      // pindah untuk nampilin gambar
       const newTab = window.open('', '_blank');
       newTab.document.write(`<img src="${imageData}" alt="Gambar yang Diambil"/>`);
       newTab.document.close();
     },
-    scanQR() {
-      // Logika untuk memulai proses scan QR akan ditempatkan di sini
-    },
-  },
-  beforeDestroy() {
-    if (this.mediaStream) {
-      this.mediaStream.getTracks().forEach(track => track.stop());
-    }
   },
 };
 </script>
